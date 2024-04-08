@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+:root {
+    /* font size */
+    --h2: 1.5rem;
+    --p-body: 1.125rem;
+    --p-small: .8rem;
+
+    /* spacers */
+    --sp-small: .5rem;
+    --sp-medium: 1rem;
+    --sp-large: 1.5rem;
+
+    /* color */
+    --white: hsl(0, 0%, 100%);
+    --red: hsl(0, 100%, 66%);
+    --light-violet: hsl(270, 3%, 87%);
+    --dark-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+}
+
+*{
+    box-sizing: border-box;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+/* --------Card Design------ */
+.herobox__1 {
+    flex: 1;
+    width: 100%;
+    background-image: url(images/bg-main-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 2rem;
+}
+.card--wrapper {
+    position: relative;
+    height: 280px;
+}
+.card {
+    position: absolute;
+    width: 319px;
+    height: 175px;
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--white);
+}
+.card--front {
+    z-index: 2;
+    bottom: -15%;
+    left: 4%;
+    background-image: url(images/bg-card-front.png);
+    display: grid;
+    padding: var(--sp-small) var(--sp-medium);
+}
+.cardNumber--data {
+    place-self: center;
+    text-align-last: justify;
+    width: 100%;
+    display: inline-block;
+}
+.cardHolder--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.card--back {
+    z-index: 1;
+    bottom: 20%;
+    left: 14%;
+    background-image: url(images/bg-card-back.png);
+}
+.cvc--data {
+    position: relative;
+    display: inline;
+    inset: 77px -255px auto auto;
+}
+/* -----------End of Card Design------------- */
+
+/* ------------Form field------------ */
+.herobox__2 {
+    flex: 2;
+    padding: var(--sp-large);
+}
+form {
+    display: grid;
+    row-gap: var(--sp-medium);
+}
+label {
+    display: block;
+    font-size: .85rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--very-dark-violet);
+}
+.feedback {
+    opacity: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: var(--p-small);
+    color: var(--red);
+}
+input {
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--dark-violet);
+    height: 2.4rem;
+    padding: var(--sp-small);
+    font-size: var(--p-body);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+input:is(:focus-visible,:hover) {
+    border-image: linear-gradient(to right,hsl(249, 99%, 64%),hsl(278, 94%, 30%));
+    border-image-slice: 1;
+    border-radius: 5px;
+    background-clip: clip;
+    cursor: pointer;
+}
+input.invalid {
+    border-color: hsl(0, 100%, 66%);
+    border-image: none;
+}
+input.invalid +.feedback{
+    opacity: 1;
+}
+.form--group {
+    display: grid;
+    row-gap: var(--sp-small);
+}
+.form--group:has(.cvc) {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-small);
+}
+.exp--date {
+    display: grid;
+    gap: var(--sp-small);
+}
+.exp--date:has(.invalid) >.feedback {
+    opacity: 1;
+}
+.cvc {
+    display: grid;
+    gap: var(--sp-small);
+}
+.input--wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-small);
+}
+button {
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    height: 2.5rem;
+    color: var(--white);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    background-color: var(--very-dark-violet);
+}
+button:is(:focus-visible, :hover) {
+    background-color: black;
+    cursor: pointer;
+}
+.popup-close {
+    max-width: 500px;
+}
+/* ----------End of form field---------- */
+
+/* --------Confirmation message-------- */
+.success--wrapper {
+    display: none;
+    flex: 2;
+    width: 100%;
+    padding: var(--sp-large);
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+}
+.success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+h2 {
+    font-size: var(--h2);
+    text-transform: uppercase;
+}
+.success > p {
+    font-size: var(--p-body);
+    color: var(--dark-violet);
+}
+.success > button {
+    width: 100%;
+}
+/* ----------End of confirmation message-------- */
+
+
+
+/* -------------Tablet view -------------- */
+@media (min-width: 426px) {
+    .card--front {
+        left: 15%;
+    }
+    .card--back {
+        left: 25%;
+    }
+}
+
+/* ----------Desktop view ------- */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+    
+    .card--wrapper {
+        min-height: 100vh;
+    }
+    .card--front {
+        top: 20%;
+        left: 25%;
+        /* right: -20%; */
+    }
+    .card--back {
+        top: 50%;
+        left: 40%;
+        /* right: -35%; */
+    }
+    form {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+}

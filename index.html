@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- This is my css reset -->
+    <link rel="stylesheet" href="css-reset.css">
+    <!-- This is my own stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <title>Interactive Card Details Form | Frontend Mentor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="herobox__1">
+            <!-- Card Design -->
+            <div class="card--wrapper">
+                <div class="card card--front">
+                    <div class="card--logo">
+                        <img src="images/card-logo.svg" alt="Card logo">
+                    </div>
+                    <div class="cardNumber--data">1234 5678 9123 0000</div>
+                    <div class="cardHolder--wrapper">
+                        <div class="cardHolder--data">Jane Appleseed</div>
+                        <div class="cardExpiry--data">
+                            <span class="expMonth--data">MM</span>
+                            /
+                            <span class="expYear-data">YY</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card--back">
+                    <div class="cvc--data">000</div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Success Message -->
+         <div class="success--wrapper">
+            <div class="success">
+                <img src="images/icon-complete.svg" alt="a confirmatory tick" width="60px" height="60px">
+                <h2>Thank you!</h2>
+                <p>We've added your card details</p>
+                <button class="popup-close">Continue</button>
+            </div>
+        </div>
+
+        <div class="herobox__2">
+            <!-- Form Field -->
+            <form>
+                <!-- Card Holder -->
+                <div class="form--group">
+                    <label for="cardHolderName">Cardholder Name</label>
+                    <input type="text" name="cardHolderName" id="cardHolder" placeholder="e.g Jane Appleseed">
+                    <p class="feedback">Can't be blank</p>
+                </div>
+
+                <!-- Card Number -->
+                <div class="form--group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" name="cardNumber" id="cardNumber" placeholder="e.g 1234 5678 9123 0000" maxlength="19" oninput="cardSpace(this)">
+                    <p class="feedback">Can't be blank</p>
+                </div>
+
+                <!-- Card Details -->
+                <div class="form--group">
+
+                    <!-- Expiration date -->
+                    <div class="exp--date">
+                        <label for="input--wrapper">Exp. date (MM/YY)</label>
+                        <div class="input--wrapper">
+                            <input type="text" name="expMonth" id="expMonth" placeholder="MM" maxlength="2">
+                            <input type="text" name="expYear"  id="expYear"  placeholder="YY" maxlength="2">
+                        </div>
+                        <p class="feedback">Can't be blank</p>
+                    </div>
+
+                    <!-- CVC info -->
+                    <div class="cvc">
+                        <label for="cvc">CVC</label>
+                        <input type="text" name="cvc" id="cvc" placeholder="e.g 123" minlength="3" maxlength="3">
+                        <p class="feedback">Can't be blank</p>
+                    </div>
+                </div>
+                <button class="btn" type="submit">Confirm</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Script -->
+    <script src="index.js"></script>
+</body>
+</html>
